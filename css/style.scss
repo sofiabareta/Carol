@@ -1,3 +1,6 @@
+@import url('../fonts/fonts.css');
+@import url('reset.css');
+
 $azul: #6bbabb;
 $rosa: #cf4266;
 $plight: 'pluto_sanscond_light';
@@ -5,29 +8,34 @@ $pthin: 'pluto_sanscond_thin';
 $osl: 'open_sanslight';
 
 html{
-	font-size: 10px;
 	max-width: 100%;
+	font-size: 10px;
 }
 
 h1{
-	font-size: 4rem;
+	font-size: 2.5rem;
 	color: #362c69;
 	text-transform: lowercase;
 	font-family: $plight;
-	letter-spacing: 4px;
+	letter-spacing: 2px;
+	text-align: center;
+	margin-bottom: 0.5rem;
 }
 
 h2{
-	font-size: 1.2rem;
+	font-size: 1.5rem;
 	color: #171528;
 	text-transform: lowercase;
 	font-family: $pthin;
+	text-align: center;
+	letter-spacing: 0.5px;
+	margin-bottom: 2rem;;
 	
 }
 
 img{
+	display: block;
 	max-width: 100%;
-	height: auto;;
 }
 
 section{
@@ -37,10 +45,16 @@ section{
 	position: relative;
 }
 
+.info{
+	position: relative;
+	align-self: stretch;
+	margin: 1.5rem 1rem 0;
+}
+
 .about{
 	display: flex;
 	align-items: center;
-	padding: 1rem;
+	padding: 2rem;
 	> *{
 		-webkit-flex: 1;
 		-moz-flex: 1;
@@ -48,40 +62,62 @@ section{
 		-o-flex: 1;
 		flex: 1;
 		text-align: center;
+		align-items: stretch;
 	}
 	img{
 		max-width: 65px;
 	}
 }
+.divisor{
+	width: 100%;
+}
 .info{
 	ul{
-		display: flex;
-		justify-content: space-between;
 		align-items: center;
 		text-transform: lowercase;
+		bottom: 0;
+		justify-content: space-between;;
+		display: flex;
+		position: absolute;
+		width: 100%;
+		left: 0;
+		right: 0;
 		li{
 			a{
-				font-size: 2rem;
+				font-size: 1.6rem;
 				text-decoration: none;
 				font-family: $osl;
+				vertical-align: middle;
+				color: $rosa;
+			}
+			a:hover{
+				font-weight: bold;
 			}
 			img{
-				vertical-align: middle;
+				vertical-align: middle;
+				width: 30px;
+				display: inline-block;
+				height: 30px;
 				/* IE6-9 */;
 			}
+		}
+		li:last-child a{
+			color: $azul;
 		}
 	}
 }
 .jobs{
 	div{
-		display: inline-flex;
+		display: block;
 		align-items: center;
 		position: relative;
+		min-height: 220px;
+		overflow: hidden;;
 
 		span{
 			position: absolute;
 			top: 50%;
-			width: 155px;
+			width: 45%;
 			left: 50%;
 			transform: translate(-50%, -50%);
 			text-align: center;
@@ -90,6 +126,10 @@ section{
 			background: $azul;
 			font-size: 2rem;
 			min-height: 40px;
+			font-family: 'open_sanslight';
+			color: #FFF;
+			text-transform: lowercase;
+			letter-spacing: 1px;
 		}
 	}
 	div:last-child{
@@ -102,10 +142,140 @@ section{
 		position: absolute;
 		width: 100%;
 		height: 100%;
-		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6bbabb+0,cf4266+100&1+0,0.5+100 */
-		background: -moz-linear-gradient(top,  rgba(107,186,187,.5) 0%, rgba(207,66,102,0.5) 100%); /* FF3.6-15 */
-		background: -webkit-linear-gradient(top,  rgba(107,186,187,.5) 0%,rgba(207,66,102,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
-		background: linear-gradient(to bottom,  rgba(107,186,187,.5) 0%,rgba(207,66,102,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6bbabb', endColorstr='#80cf4266',GradientType=0 ); /* IE6-9 */
+		top: 0;;
+	}
+	div:first-child:after{
+		background: rgba(107, 186, 187, 0.4);
+	}
+	div:last-child:after{
+		background: rgba(207, 66, 102, 0.4);
+	}
+	
+}
+
+@media (min-width: 400px){
+	html{
+		font-size: 12px;
+	}
+	.jobs div{
+		min-height: 300px; 
+	}
+}
+
+@media (min-height: 768px){
+	html{
+		font-size: 18px;
+	}
+	.about img{
+		max-width: 150px;
+	}
+	.jobs div span{
+		top: 100;
+	}
+}
+
+@media (min-width: 1000px){
+	html, body{
+		height: 100%;
+	}
+	.jobs{
+		display: flex;
+		height: 100%;
+		justify-content: space-between;
+		div{
+			height:100%; 
+			flex: 1;
+			cursor: pointer;
+			img{
+				max-width: initial;
+				height: 100%;
+			}
+		}
+		div:first-child:hover:after{
+			background: rgba(107, 186, 187, 0.6);
+		}
+		div:last-child:hover:after{
+			background: rgba(207, 66, 102, 0.6);
+		}
+		div:first-child span{
+			right: initial;
+			transform: translateY(-50%) translateX(0);
+			left: 10%;
+		}
+		div:last-child span{
+			left: initial;
+			transform: translateY(-50%) translateX(0);
+			right: 10%;
+		}
+		div:last-child:after, div:first-child:after{
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#6bbabb+0,cf4266+100&1+0,0.5+100 */
+			background: -moz-linear-gradient(top,  rgba(107,186,187,.5) 0%, rgba(207,66,102,0.5) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top,  rgba(107,186,187,.5) 0%,rgba(207,66,102,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  rgba(107,186,187,.5) 0%,rgba(207,66,102,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6bbabb', endColorstr='#80cf4266',GradientType=0 ); /* IE6-9 */
+		}
+	}
+	.about{
+		position: absolute;
+		top: 59%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 2;
+		background: #FFF;
+		padding: 1rem 2rem;
+		> img{
+			position: absolute;
+			top: -100%;
+			left: 53%;
+			transform: translate(-50%, -35%);
+			max-width: 34%;
+		}
+		.info{
+			margin: 0;
+			h2{
+				letter-spacing: 3px;
+				margin-bottom: 3rem;
+			}
+		}
+	}
+}
+@media (min-width: 1200px) {
+.about ul {
+	position: relative;
+}
+.about ul {
+}
+.about {
+	padding: 1.5rem 3rem;
+	top: 57%;
+}
+	.about{
+		> img{
+			max-width: 40%;
+			top: -125%;
+		}
+		.info h2{
+			margin-bottom: 1.5rem;
+		}
+		ul{
+		}
+	}
+	.jobs{
+		div:first-child span{
+			left: initial;
+			right: 30%;
+		}
+		div:last-child span{
+			left: 30%;
+			right: initial;
+		}
+		img{
+			height: auto;
+			width: 100%;
+		}
 	}
 }
